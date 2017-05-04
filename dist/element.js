@@ -9,22 +9,29 @@
 				instance: '=fsElement',
 			},
 		 	link: function ($scope, element) {
+
+		 		function process(func) {
+		 			setTimeout(func);
+		 		}
+
 		 		angular.extend($scope.instance,
 		 			{
 		     			scroll: {
 		     				bottom: function() {
-		     					element[0].scrollTop = element[0].scrollHeight;
+		     					process(function() { element[0].scrollTop = element[0].scrollHeight });
 		     				},
 		     				top: function() {
-		     					element[0].scrollTop = 0;
+		     					process(function() { element[0].scrollTop = 0; });
 		     				}
 		     			},
 		     			focus: function() {
-		     				element[0].focus();
+		     				process(function() { element[0].focus(); });
 		     			}
 		     		});
 			}
 		};
 	});
 })();
+
+
 
