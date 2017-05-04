@@ -1,0 +1,16 @@
+{
+  "name": "fs-angular-element",
+  "description": "",
+  "main": [
+    "dist/element.js"
+  ],
+  "authors": [
+    "Firestitch Inc."
+  ],
+  "license": "MIT",
+  "ignore": [
+    "src",
+    ".gitignore"
+  ],
+  "private": false
+}
