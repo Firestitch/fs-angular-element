@@ -14,7 +14,7 @@
     $scope.textelement = {};
 
     setTimeout(function() {
-    	$scope.textelement.focus();
+    	//$scope.textelement.focus();
     },2000)
 });
 

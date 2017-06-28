@@ -30,6 +30,15 @@
 		     		});
 			}
 		};
+	})
+	.directive('fsElementFocus', function() {
+		return {
+		 	link: function ($scope, element) {
+		 		setTimeout(function() {
+		 			element[0].focus();
+		 		});
+			}
+		};
 	});
 })();
 
