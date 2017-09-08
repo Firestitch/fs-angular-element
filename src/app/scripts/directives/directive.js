@@ -1,3 +1,4 @@
+
 (function () {
     'use strict';
 
@@ -9,22 +10,29 @@
 			},
 		 	link: function ($scope, element) {
 
-		 		function process(func) {
-		 			setTimeout(func);
+		 		function process(func,options) {
+		 			if(options && options.timeout) {
+		 				setTimeout(func,options.timeout);
+		 			} else {
+		 				func();
+		 			}
 		 		}
 
 		 		angular.extend($scope.instance,
 		 			{
 		     			scroll: {
-		     				bottom: function() {
-		     					process(function() { element[0].scrollTop = element[0].scrollHeight });
+		     				bottom: function(options) {
+		     					process(function() { element[0].scrollTop = element[0].scrollHeight },options);
 		     				},
-		     				top: function() {
-		     					process(function() { element[0].scrollTop = 0; });
+		     				top: function(options) {
+		     					process(function() { element[0].scrollTop = 0; },options);
 		     				}
 		     			},
-		     			focus: function() {
-		     				process(function() { element[0].focus(); });
+		     			focus: function(options) {
+		     				process(function() { element[0].focus(); },options);
+		     			},
+		     			blur: function(options) {
+		     				process(function() { element[0].blur(); },options);
 		     			}
 		     		});
 			}
@@ -40,4 +48,3 @@
 		};
 	});
 })();
-
